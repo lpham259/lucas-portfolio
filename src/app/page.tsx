@@ -47,10 +47,11 @@ const Portfolio = () => {
   ];
 
   const openProject = (projectName: string) => {
+    // These would be your actual project URLs
     const urls: Record<string, string> = {
-      'WebDUPER': 'https://github.com/lpham259/WebDUPER',
-      'StreamShare': 'https://github.com/lpham259/StreamShare',
-      'Amazon NLP Classifier': 'https://github.com/lpham259/Amazon-NLP-Classifier'
+      'WebDUPER': 'https://github.com/lpham259/webduper', // Replace with actual URL
+      'StreamShare': 'https://github.com/lpham259/streamshare', // Replace with actual URL
+      'Amazon NLP Classifier': 'https://github.com/lpham259/amazon-nlp-classifier' // Replace with actual URL
     };
     
     window.open(urls[projectName], '_blank');
@@ -91,10 +92,10 @@ const Portfolio = () => {
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-white mb-6">About</h2>
           <p className="text-gray-300 text-lg leading-relaxed max-w-4xl">
-            I'm a Computer Engineering student at UT Austin with experience in full-stack development, 
-            machine learning, and embedded systems. I've interned at Enpower Resources and Halliburton, 
+            I&apos;m a Computer Engineering student at UT Austin with experience in full-stack development, 
+            machine learning, and embedded systems. I&apos;ve interned at Enpower Resources and Halliburton, 
             where I worked on real-time monitoring systems, firmware development, and cloud infrastructure. 
-            I'm passionate about building scalable applications and solving complex technical challenges.
+            I&apos;m passionate about building scalable applications and solving complex technical challenges.
           </p>
         </section>
 
@@ -202,6 +203,14 @@ const Portfolio = () => {
       </main>
 
       {/* Footer */}
+      <footer className="border-t border-gray-800 mt-20">
+        <div className="max-w-6xl mx-auto px-6 py-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+            <p className="text-gray-400">© 2025 Lucas Pham. All rights reserved.</p>
+            <p className="text-gray-500 mt-2 md:mt-0">Built with Next.js and Tailwind CSS</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
