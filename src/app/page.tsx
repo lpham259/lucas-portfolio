@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 
 interface CodeLine {
   id: number;
@@ -31,13 +30,11 @@ const DevPortfolio = () => {
   const [activeTab, setActiveTab] = useState<keyof MenuSections>('chefs-tasting');
   const [codeLines, setCodeLines] = useState<CodeLine[]>([]);
   const [cursorVisible, setCursorVisible] = useState(true);
-  const [contentKey, setContentKey] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   const handleTabChange = (newTab: keyof MenuSections) => {
     if (newTab !== activeTab) {
       setActiveTab(newTab);
-      setContentKey(prev => prev + 1); // Force re-render with new animation
     }
   };
 
@@ -46,29 +43,25 @@ const DevPortfolio = () => {
       setIsMobile(window.innerWidth < 1024);
     };
 
-    // Check initial screen size
     checkScreenSize();
-
-    // Add event listener for window resize
     window.addEventListener('resize', checkScreenSize);
-
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  const codeSnippets = [
-    "const lucas = new FullStackEngineer({ location: 'Austin, TX' });",
-    "while(coffee.available()) { buildAmazingThings(); }",
-    "// import { passion, creativity } from experience;",
-    "const techStack = ['React', 'Python', 'AWS', 'PostgreSQL'];",
-    "git commit -m 'Another feature shipped 🚀'",
-    "SELECT * FROM opportunities WHERE impact > 0;",
-    "docker compose up --scale innovation=∞",
-    "npm install @lucas/problem-solving-skills",
-    "const delayd = await processFlightCompensation();",
-    "return solutions.map(idea => realWorldImpact);"
-  ];
-
   useEffect(() => {
+    const codeSnippets = [
+      "const lucas = new FullStackEngineer({ location: 'Austin, TX' });",
+      "while(coffee.available()) { buildAmazingThings(); }",
+      "// import { passion, creativity } from experience;",
+      "const techStack = ['React', 'Python', 'AWS', 'PostgreSQL'];",
+      "git commit -m 'Another feature shipped'",
+      "SELECT * FROM opportunities WHERE impact > 0;",
+      "docker compose up --scale innovation=∞",
+      "npm install @lucas/problem-solving-skills",
+      "const delayd = await processFlightCompensation();",
+      "return solutions.map(idea => realWorldImpact);"
+    ];
+
     const interval = setInterval(() => {
       setCodeLines(prev => {
         const newLines = [...prev];
@@ -251,7 +244,7 @@ const DevPortfolio = () => {
             margin: '20px 0 40px 0',
             borderBottom: '1px solid #e0e0e0'
           }}>
-            {(Object.entries(menuSections) as [keyof MenuSections, MenuSection][]).map(([key, section]) => (
+            {(Object.entries(menuSections) as [keyof MenuSections, MenuSection][]).map(([key]) => (
               <button
                 key={key}
                 onClick={() => handleTabChange(key)}
@@ -289,7 +282,7 @@ const DevPortfolio = () => {
           <div style={{ 
             marginBottom: '20px',
             opacity: 1,
-            animation: 'fadeInUp 0.6s ease-out'
+            animation: 'fadeInUp 0.5s ease-in-out'
           }}>
             <p style={{
               fontStyle: 'italic',
@@ -503,7 +496,7 @@ const DevPortfolio = () => {
                   <span style={{ color: '#6495ed' }}>$</span> cat personal.md
                 </div>
                 <div style={{ color: '#fff', marginBottom: '15px', fontSize: '10px' }}>
-                  Passionate foodie exploring Austin's culinary scene<br/>
+                  Passionate foodie exploring Austin&apos;s culinary scene<br/>
                   Dedicated to consistent gym training and strength building<br/>
                   Always seeking new flavors and fitness challenges<br/>
                   Believes great code comes from a balanced life
@@ -549,8 +542,6 @@ const DevPortfolio = () => {
               </div>
             </div>
           </div>
-
-          {/* Location Info - Removed */}
         </div>
       </div>
 
