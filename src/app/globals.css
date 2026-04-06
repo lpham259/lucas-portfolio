@@ -1,9 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-bg: #06080A;
+  --color-surface: #0D1214;
+  --color-surface-2: #131A1D;
+  --color-border: #1C2830;
+  --color-text: #DDD8CC;
+  --color-muted: #556068;
+  --color-accent: #FF5A1F;
+  --color-signal: #00E5A0;
+  --color-signal-dim: #00E5A020;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dot grid background */
+.dot-grid {
+  background-image: radial-gradient(circle, #1C2830 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Glowing orange underline */
+.accent-underline {
+  position: relative;
+}
+.accent-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--color-accent);
+  vertical-align: text-bottom;
+  animation: blink 1.1s step-end infinite;
+  margin-left: 4px;
+  box-shadow: 0 0 6px var(--color-accent);
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+.fade-up-1 { animation-delay: 0.1s; opacity: 0; }
+.fade-up-2 { animation-delay: 0.25s; opacity: 0; }
+.fade-up-3 { animation-delay: 0.4s; opacity: 0; }
+.fade-up-4 { animation-delay: 0.55s; opacity: 0; }
+.fade-up-5 { animation-delay: 0.7s; opacity: 0; }
+.fade-up-6 { animation-delay: 0.85s; opacity: 0; }
+
+/* Scrolling marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-inner {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+/* Card hover glow */
+.card-hover {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 20px rgba(255, 90, 31, 0.12), 0 4px 24px rgba(0,0,0,0.4);
+  transform: translateY(-2px);
+}
+
+/* Signal bar animation */
+@keyframes signalPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 90, 31, 0.25);
+  color: var(--color-text);
 }
