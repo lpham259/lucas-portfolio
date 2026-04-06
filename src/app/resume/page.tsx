@@ -211,7 +211,7 @@ export default function ResumePage() {
             <ResumeSection title="Education">
               <ResumeEntry
                 left="University of Texas at Austin"
-                right="Aug 2023 – May 2027"
+                right="Aug 2023 – May 2026"
                 sub="B.S. Electrical and Computer Engineering (Honors) | Minor: Business Management | GPA: 3.80"
               />
             </ResumeSection>

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Syne, JetBrains_Mono } from "next/font/google";
+import { Barlow_Semi_Condensed, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 
-const syne = Syne({
+const barlowSemiCondensed = Barlow_Semi_Condensed({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["400", "500", "600", "700", "800"],
@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${syne.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${barlowSemiCondensed.variable} ${jetbrainsMono.variable}`}>
       <body>
         <NavBar />
         <main>{children}</main>

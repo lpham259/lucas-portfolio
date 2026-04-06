@@ -31,7 +31,7 @@ const TIMELINE: TimelineEntry[] = [
   {
     org: "University of Texas at Austin",
     role: "B.S. Electrical and Computer Engineering (Honors)",
-    period: "Aug 2023 – May 2027",
+    period: "Aug 2023 – May 2026",
     type: "education",
     bullets: [
       "GPA: 3.80 | Minor in Business Management.",
@@ -176,7 +176,7 @@ export default function AboutPage() {
               I&apos;m a junior at UT Austin studying Electrical and Computer
               Engineering{" "}
               <span style={{ color: "var(--color-text)" }}>
-                (GPA: 3.80, graduating 2027)
+                (GPA: 3.80, graduating May 2026)
               </span>{" "}
               with a minor in Business Management.
             </p>

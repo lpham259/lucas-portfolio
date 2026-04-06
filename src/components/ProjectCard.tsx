@@ -30,55 +30,33 @@ export default function ProjectCard({
       style={{
         border: "1px solid var(--color-border)",
         borderRadius: "6px",
-        padding: "28px",
+        padding: "22px 24px",
         backgroundColor: "var(--color-surface)",
         display: "flex",
         flexDirection: "column",
-        gap: "16px",
+        gap: "12px",
         cursor: "default",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
-      {/* Index watermark */}
-      <span
-        style={{
-          position: "absolute",
-          top: "16px",
-          right: "20px",
-          fontFamily: "var(--font-display)",
-          fontSize: "64px",
-          fontWeight: 800,
-          color: "var(--color-border)",
-          lineHeight: 1,
-          userSelect: "none",
-          pointerEvents: "none",
-        }}
-      >
-        {num}
-      </span>
-
       {/* Header */}
-      <div>
-        <p
+      <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
+        <span
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: "10px",
-            letterSpacing: "0.12em",
-            color: "var(--color-accent)",
-            textTransform: "uppercase",
-            marginBottom: "6px",
+            color: "var(--color-muted)",
+            letterSpacing: "0.06em",
           }}
         >
-          project.{num}
-        </p>
+          {num}
+        </span>
         <h3
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "20px",
+            fontSize: "18px",
             fontWeight: 700,
             color: "var(--color-text)",
-            letterSpacing: "-0.01em",
+            letterSpacing: "0.01em",
           }}
         >
           {name}
@@ -90,7 +68,7 @@ export default function ProjectCard({
         style={{
           fontFamily: "var(--font-mono)",
           fontSize: "12px",
-          lineHeight: 1.7,
+          lineHeight: 1.65,
           color: "var(--color-muted)",
         }}
       >
@@ -101,7 +79,7 @@ export default function ProjectCard({
       <div
         style={{
           borderLeft: "2px solid var(--color-signal)",
-          paddingLeft: "12px",
+          paddingLeft: "10px",
         }}
       >
         <p
@@ -118,7 +96,7 @@ export default function ProjectCard({
       </div>
 
       {/* Tags */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
         {tags.map((tag) => (
           <TechTag key={tag} label={tag} />
         ))}
@@ -131,6 +109,7 @@ export default function ProjectCard({
           gap: "12px",
           marginTop: "auto",
           paddingTop: "4px",
+          borderTop: "1px solid var(--color-border)",
         }}
       >
         <a
@@ -140,7 +119,7 @@ export default function ProjectCard({
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "6px",
+            gap: "5px",
             fontFamily: "var(--font-mono)",
             fontSize: "11px",
             color: "var(--color-muted)",
@@ -154,7 +133,7 @@ export default function ProjectCard({
             (e.currentTarget.style.color = "var(--color-muted)")
           }
         >
-          <Github size={13} />
+          <Github size={12} />
           GitHub
         </a>
         {liveUrl && (
@@ -165,7 +144,7 @@ export default function ProjectCard({
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "6px",
+              gap: "5px",
               fontFamily: "var(--font-mono)",
               fontSize: "11px",
               color: "var(--color-accent)",
@@ -175,7 +154,7 @@ export default function ProjectCard({
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            <ExternalLink size={13} />
+            <ExternalLink size={12} />
             Live
           </a>
         )}

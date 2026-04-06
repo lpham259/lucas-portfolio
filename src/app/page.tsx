@@ -31,12 +31,6 @@ const PROJECTS = [
   },
 ];
 
-const SKILLS_MARQUEE = [
-  "C/C++", "Python", "Go", "TypeScript", "Rust", "Swift", "Kotlin", "SQL",
-  "FastAPI", "Next.js", "React", "CUDA", "STM32H7", "AWS", "GCP",
-  "Docker", "Kubernetes", "PostgreSQL", "Firebase", "Claude API", "PyTorch",
-];
-
 export default function HomePage() {
   return (
     <>
@@ -53,89 +47,54 @@ export default function HomePage() {
           overflow: "hidden",
         }}
       >
-        {/* Orange glow blob */}
         <div
           style={{
             position: "absolute",
-            top: "20%",
-            right: "-10%",
-            width: "500px",
-            height: "500px",
+            top: "15%",
+            right: "-5%",
+            width: "420px",
+            height: "420px",
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(255,90,31,0.08) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(255,90,31,0.07) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
 
         <div
           style={{
-            maxWidth: "1200px",
+            maxWidth: "1100px",
             margin: "0 auto",
-            padding: "80px 24px",
+            padding: "64px 24px",
             width: "100%",
           }}
         >
-          {/* Status badge */}
-          <div className="fade-up fade-up-1" style={{ marginBottom: "32px" }}>
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                fontFamily: "var(--font-mono)",
-                fontSize: "11px",
-                color: "var(--color-signal)",
-                border: "1px solid rgba(0,229,160,0.25)",
-                borderRadius: "20px",
-                padding: "5px 14px",
-                backgroundColor: "rgba(0,229,160,0.05)",
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-              }}
-            >
-              <span
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "50%",
-                  backgroundColor: "var(--color-signal)",
-                  boxShadow: "0 0 6px var(--color-signal)",
-                  animation: "signalPulse 2s ease-in-out infinite",
-                }}
-              />
-              Open to 2026 internships &amp; new-grad roles
-            </span>
-          </div>
-
           {/* Name */}
           <h1
-            className="fade-up fade-up-2"
+            className="fade-up fade-up-1"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(52px, 10vw, 108px)",
+              fontSize: "clamp(56px, 11vw, 96px)",
               fontWeight: 800,
-              lineHeight: 0.92,
-              letterSpacing: "-0.03em",
+              lineHeight: 0.95,
+              letterSpacing: "-0.01em",
               color: "var(--color-text)",
-              marginBottom: "28px",
+              marginBottom: "24px",
             }}
           >
-            Lucas
-            <br />
-            <span style={{ color: "var(--color-accent)" }}>Pham</span>
+            Lucas Pham
           </h1>
 
           {/* Headline */}
           <p
-            className="fade-up fade-up-3"
+            className="fade-up fade-up-2"
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "clamp(13px, 2vw, 16px)",
-              lineHeight: 1.65,
+              fontSize: "clamp(12px, 1.8vw, 15px)",
+              lineHeight: 1.7,
               color: "var(--color-muted)",
-              maxWidth: "560px",
-              marginBottom: "40px",
+              maxWidth: "480px",
+              marginBottom: "36px",
             }}
           >
             ECE student at UT Austin building full-stack products, embedded
@@ -143,15 +102,14 @@ export default function HomePage() {
             <span className="cursor" />
           </p>
 
-          {/* CTA row */}
+          {/* CTA + social row */}
           <div
-            className="fade-up fade-up-4"
+            className="fade-up fade-up-3"
             style={{
               display: "flex",
-              flexWrap: "wrap",
               alignItems: "center",
-              gap: "12px",
-              marginBottom: "64px",
+              gap: "16px",
+              flexWrap: "wrap",
             }}
           >
             <Link
@@ -159,285 +117,103 @@ export default function HomePage() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "8px",
+                gap: "7px",
                 fontFamily: "var(--font-mono)",
-                fontSize: "12px",
+                fontSize: "11px",
                 fontWeight: 600,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 color: "var(--color-bg)",
                 backgroundColor: "var(--color-accent)",
                 textDecoration: "none",
-                padding: "12px 22px",
+                padding: "10px 20px",
                 borderRadius: "4px",
-                transition: "opacity 0.15s, transform 0.15s",
+                transition: "opacity 0.15s",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = "0.88";
-                e.currentTarget.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = "1";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
-              View projects
-              <ArrowRight size={13} />
+              Projects
+              <ArrowRight size={12} />
             </Link>
-            <a
-              href="https://github.com/lpham259"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                fontFamily: "var(--font-mono)",
-                fontSize: "12px",
-                color: "var(--color-muted)",
-                textDecoration: "none",
-                padding: "12px 22px",
-                borderRadius: "4px",
-                border: "1px solid var(--color-border)",
-                backgroundColor: "transparent",
-                transition: "color 0.15s, border-color 0.15s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "var(--color-text)";
-                e.currentTarget.style.borderColor = "var(--color-muted)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "var(--color-muted)";
-                e.currentTarget.style.borderColor = "var(--color-border)";
-              }}
-            >
-              <Github size={14} />
-              GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/lucas-p-60433a24b"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                fontFamily: "var(--font-mono)",
-                fontSize: "12px",
-                color: "var(--color-muted)",
-                textDecoration: "none",
-                padding: "12px 22px",
-                borderRadius: "4px",
-                border: "1px solid var(--color-border)",
-                backgroundColor: "transparent",
-                transition: "color 0.15s, border-color 0.15s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "var(--color-text)";
-                e.currentTarget.style.borderColor = "var(--color-muted)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "var(--color-muted)";
-                e.currentTarget.style.borderColor = "var(--color-border)";
-              }}
-            >
-              <Linkedin size={14} />
-              LinkedIn
-            </a>
-            <a
-              href="mailto:lucas.tru.pham@gmail.com"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                fontFamily: "var(--font-mono)",
-                fontSize: "12px",
-                color: "var(--color-muted)",
-                textDecoration: "none",
-                padding: "12px 22px",
-                borderRadius: "4px",
-                border: "1px solid var(--color-border)",
-                backgroundColor: "transparent",
-                transition: "color 0.15s, border-color 0.15s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "var(--color-text)";
-                e.currentTarget.style.borderColor = "var(--color-muted)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "var(--color-muted)";
-                e.currentTarget.style.borderColor = "var(--color-border)";
-              }}
-            >
-              <Mail size={14} />
-              Email
-            </a>
-          </div>
 
-          {/* Quick stats */}
-          <div
-            className="fade-up fade-up-5"
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "32px",
-              borderTop: "1px solid var(--color-border)",
-              paddingTop: "32px",
-            }}
-          >
+            <div
+              style={{
+                width: "1px",
+                height: "20px",
+                backgroundColor: "var(--color-border)",
+              }}
+            />
+
+            {/* Icon links */}
             {[
-              { val: "3.80", label: "GPA" },
-              { val: "2027", label: "Graduating" },
-              { val: "6", label: "Projects" },
-              { val: "2×", label: "Internships" },
-            ].map(({ val, label }) => (
-              <div key={label}>
-                <p
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "28px",
-                    fontWeight: 800,
-                    color: "var(--color-text)",
-                    lineHeight: 1,
-                  }}
-                >
-                  {val}
-                </p>
-                <p
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "10px",
-                    color: "var(--color-muted)",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    marginTop: "4px",
-                  }}
-                >
-                  {label}
-                </p>
-              </div>
+              { href: "https://github.com/lpham259", icon: <Github size={16} />, label: "GitHub" },
+              { href: "https://linkedin.com/in/lucas-p-60433a24b", icon: <Linkedin size={16} />, label: "LinkedIn" },
+              { href: "mailto:lucas.tru.pham@gmail.com", icon: <Mail size={16} />, label: "Email" },
+            ].map(({ href, icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("mailto") ? undefined : "_blank"}
+                rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                aria-label={label}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "var(--color-muted)",
+                  textDecoration: "none",
+                  transition: "color 0.15s",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "var(--color-text)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "var(--color-muted)")
+                }
+              >
+                {icon}
+              </a>
             ))}
           </div>
         </div>
-
-        {/* Scroll hint */}
-        <div
-          className="fade-up fade-up-6"
-          style={{
-            position: "absolute",
-            bottom: "32px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "8px",
-          }}
-        >
-          <div
-            style={{
-              width: "1px",
-              height: "48px",
-              background:
-                "linear-gradient(to bottom, transparent, var(--color-muted))",
-            }}
-          />
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "9px",
-              color: "var(--color-muted)",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-            }}
-          >
-            scroll
-          </span>
-        </div>
       </section>
-
-      {/* Skills marquee */}
-      <div
-        style={{
-          borderTop: "1px solid var(--color-border)",
-          borderBottom: "1px solid var(--color-border)",
-          padding: "14px 0",
-          overflow: "hidden",
-          backgroundColor: "var(--color-surface)",
-        }}
-      >
-        <div className="marquee-inner">
-          {[...SKILLS_MARQUEE, ...SKILLS_MARQUEE].map((skill, i) => (
-            <span
-              key={i}
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "11px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "var(--color-muted)",
-                padding: "0 28px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {i % 5 === 0 ? (
-                <span style={{ color: "var(--color-accent)" }}>✦</span>
-              ) : null}{" "}
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* Featured projects */}
       <section
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1100px",
           margin: "0 auto",
-          padding: "96px 24px",
+          padding: "72px 24px 96px",
         }}
       >
         <div
           style={{
             display: "flex",
-            alignItems: "flex-end",
+            alignItems: "baseline",
             justifyContent: "space-between",
             flexWrap: "wrap",
-            gap: "16px",
-            marginBottom: "48px",
+            gap: "12px",
+            marginBottom: "36px",
           }}
         >
-          <div>
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "10px",
-                letterSpacing: "0.14em",
-                color: "var(--color-accent)",
-                textTransform: "uppercase",
-                marginBottom: "8px",
-              }}
-            >
-              selected.work
-            </p>
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(28px, 5vw, 42px)",
-                fontWeight: 800,
-                color: "var(--color-text)",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Featured Projects
-            </h2>
-          </div>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(22px, 4vw, 32px)",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              letterSpacing: "0.01em",
+            }}
+          >
+            Selected Projects
+          </h2>
           <Link
             href="/projects"
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "6px",
+              gap: "5px",
               fontFamily: "var(--font-mono)",
               fontSize: "11px",
               color: "var(--color-muted)",
@@ -453,8 +229,7 @@ export default function HomePage() {
               (e.currentTarget.style.color = "var(--color-muted)")
             }
           >
-            View all 6
-            <ArrowRight size={12} />
+            All 6 →
           </Link>
         </div>
 
@@ -462,7 +237,7 @@ export default function HomePage() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-            gap: "20px",
+            gap: "16px",
           }}
         >
           {PROJECTS.map((p, i) => (
