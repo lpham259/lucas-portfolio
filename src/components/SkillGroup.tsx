@@ -4,29 +4,19 @@ interface SkillGroupProps {
   domain: string;
   index: number;
   skills: string[];
-  featured?: boolean;
 }
 
-export default function SkillGroup({
-  domain,
-  index,
-  skills,
-  featured = false,
-}: SkillGroupProps) {
+export default function SkillGroup({ domain, index, skills }: SkillGroupProps) {
   return (
     <div
       style={{
-        border: `1px solid ${featured ? "rgba(255,90,31,0.3)" : "var(--color-border)"}`,
+        border: "1px solid var(--color-border)",
         borderRadius: "6px",
         padding: "20px 22px",
-        backgroundColor: featured
-          ? "rgba(255,90,31,0.04)"
-          : "var(--color-surface)",
+        backgroundColor: "var(--color-surface)",
         position: "relative",
-        overflow: "hidden",
       }}
     >
-      {/* Corner accent */}
       <div
         style={{
           position: "absolute",
@@ -34,7 +24,7 @@ export default function SkillGroup({
           left: 0,
           width: "3px",
           height: "100%",
-          backgroundColor: featured ? "var(--color-accent)" : "var(--color-border)",
+          backgroundColor: "var(--color-border)",
           borderRadius: "6px 0 0 6px",
         }}
       />
@@ -52,7 +42,7 @@ export default function SkillGroup({
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "10px",
-              color: featured ? "var(--color-accent)" : "var(--color-muted)",
+              color: "var(--color-muted)",
               letterSpacing: "0.08em",
             }}
           >
@@ -70,25 +60,11 @@ export default function SkillGroup({
           >
             {domain}
           </h3>
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "10px",
-              color: "var(--color-muted)",
-              marginLeft: "auto",
-            }}
-          >
-            {skills.length} signals
-          </span>
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
           {skills.map((skill) => (
-            <TechTag
-              key={skill}
-              label={skill}
-              variant={featured ? "accent" : "default"}
-            />
+            <TechTag key={skill} label={skill} />
           ))}
         </div>
       </div>
